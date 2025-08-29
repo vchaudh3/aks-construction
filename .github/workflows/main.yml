@@ -14,7 +14,7 @@ jobs:
       templateVersion: 0.10.7
       rg: az-k8s-5h73-rg
       resourceName: az-k8s-5h73
-      templateParams: resourceName=az-k8s-5h73 agentCount=1 JustUseSystemPool=true osDiskType=Managed osDiskSizeGB=32 automationAccountScheduledStartStop=Weekday
+      templateParams: resourceName=az-k8s-5h73 kubernetesVersion=1.31.6 agentCount=1 JustUseSystemPool=true osDiskType=Managed osDiskSizeGB=32 automationAccountScheduledStartStop=Weekday
     secrets:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
