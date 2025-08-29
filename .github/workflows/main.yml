@@ -1,0 +1,22 @@
+name: Deploy AKS-Construction
+
+on:
+  workflow_dispatch:
+
+permissions:
+      id-token: write
+      contents: read
+
+jobs:
+  reusable_workflow_job:
+    uses: Azure/AKS-Construction/.github/workflows/AKSC_Deploy.yml@0.10.7
+    with:
+      templateVersion: 0.10.7
+      rg: az-k8s-5h73-rg
+      resourceName: az-k8s-5h73
+      templateParams: resourceName=az-k8s-5h73 agentCount=1 JustUseSystemPool=true osDiskType=Managed osDiskSizeGB=32 automationAccountScheduledStartStop=Weekday
+    secrets:
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      USER_OBJECT_ID: ${{ secrets.USER_OBJECT_ID }}
